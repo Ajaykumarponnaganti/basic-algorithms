@@ -1,0 +1,73 @@
+Calculate the Sum of Natural Numbers
+
+1. Start
+2. Input a number n
+3. Initialize a variable sum to 0
+4. Use a loop to iterate from 1 to n:
+   - Add the current number to sum
+5. Display the value of sum
+6. End
+
+
+
+
+
+
+Check for Prime Number
+
+1. Start
+2. Input a number n
+3. If n is less than 2, it is not a prime number
+4. Use a loop to check divisibility from 2 to √n:
+   - If n is divisible by any number in this range, it is not a prime number
+5. If no divisors are found, n is a prime number
+6. Display the result
+7. End
+
+
+
+
+
+Find the Maximum of Three Numbers
+
+1. Start
+2. Input three numbers a, b, and c
+3. Compare a and b to find the larger of the two
+4. Compare the result with c to find the largest number
+5. Display the maximum value
+6. End
+
+
+
+
+
+
+
+
+
+Factorial Calculation
+
+1. Start
+2. Input a number n
+3. Initialize a variable factorial to 1.
+4. Use a loop to multiply all integers from 1 to n:
+   - factorial = factorial * i.
+5. Display the value of factorial
+6. End
+
+
+
+
+
+
+
+Check if a Number is Even or Odd
+
+1. Start.
+2. Input a number n.
+3. Check if n is divisible by 2
+     If yes, display "Even"
+     If no, display "Odd"
+4. End
+
+
