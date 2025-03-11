@@ -1,0 +1,717 @@
+1.Student Grade Calculator
+Program Description: Create a program that calculates the final grade for a student based on assignments (30%), midterm exam (30%), and final exam (40%). The program should determine if the student passed (≥60%) or failed.
+
+Key Features:
+Input assignment scores, midterm score, and final exam score
+Calculate weighted average based on predefined percentages
+Determine pass/fail status
+Display final grade and status to user
+
+
+
+**************************Algorithm : 
+1. Start
+2. Input assignment score, midterm score, and final exam score
+3. Calculate the final grade:
+4. If Final Grade >= 60, print "Passed"; otherwise, print "Failed"
+5. Display the final grade
+6. End
+
+
+
+**************************Pseudocode :
+ 
+ START
+  PRINT "Enter assignment score: "
+  INPUT assignment
+  
+  PRINT "Enter midterm score: "
+  INPUT midterm
+  
+  PRINT "Enter final exam score: "
+  INPUT final_exam
+
+  SET final_grade = (assignment * 0.30) + (midterm * 0.30) + (final_exam * 0.40)
+
+  IF final_grade >= 60 THEN
+    PRINT "Final Grade:", final_grade
+    PRINT "Status: Passed"
+  ELSE
+    PRINT "Final Grade:", final_grade
+    PRINT "Status: Failed"
+  ENDIF
+END
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+2. ATM Banking System
+Program Description: Develop a program that simulates an ATM with options to check balance, deposit money, withdraw money, and exit. The program should maintain a running balance and prevent withdrawals that would result in a negative balance.
+
+Key Features:
+Authenticate user with PIN
+Display menu of available operations
+Handle balance inquiries
+Process deposits and update balance
+Validate withdrawal requests against available balance
+Provide transaction receipts
+Allow user to exit system
+
+
+
+*******************************Algorithm :
+
+1. Start
+2. Set an initial account balance
+3. Set a predefined PIN 
+4. Ask the user to enter their PIN
+5. If the PIN is incorrect, display an error message and exit
+6. If the PIN is correct, display menu options:
+7. Check Balance → Display current balance
+8. Deposit Money → Ask for deposit amount and add it to balance
+9. Withdraw Money → Ask for withdrawal amount
+10. If withdrawal amount is less than or equal to balance, deduct it
+11. If withdrawal amount is greater than balance, display "Insufficient funds"
+12. Exit → Terminate the program
+13. Loop until the user chooses to exit
+14. End
+
+
+
+
+
+************************Pseudocode : 
+
+START
+  SET balance = 1000
+  SET PIN = 1234
+  PRINT "Enter your PIN:"
+  INPUT user_PIN
+
+  IF user_PIN != PIN THEN
+    PRINT "Incorrect PIN. Exiting..."
+    END
+  ENDIF
+
+  WHILE True DO
+    PRINT "ATM Menu: 1. Check Balance  2. Deposit  3. Withdraw  4. Exit"
+    PRINT "Enter choice:"
+    INPUT choice
+
+    IF choice == 1 THEN
+      PRINT "Current Balance:", balance
+    ELSE IF choice == 2 THEN
+      PRINT "Enter deposit amount:"
+      INPUT deposit
+      balance = balance + deposit
+      PRINT "Updated Balance:", balance
+    ELSE IF choice == 3 THEN
+      PRINT "Enter withdrawal amount:"
+      INPUT withdraw
+      IF withdraw <= balance THEN
+        balance = balance - withdraw
+        PRINT "Withdrawal successful. Updated Balance:", balance
+      ELSE
+        PRINT "Insufficient balance!"
+      ENDIF
+    ELSE IF choice == 4 THEN
+      PRINT "Exiting ATM..."
+      BREAK
+    ELSE
+      PRINT "Invalid choice! Try again."
+    ENDIF
+  ENDWHILE
+END
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+3. Inventory Management System
+Program Description: Design a program that manages a store's inventory by allowing users to add new items, update quantities, remove items, and display the current inventory. Each item should have an ID, name, price, and quantity.
+
+Key Features:
+Add new products to inventory with unique IDs
+Update existing product information
+Remove products from inventory
+Search for products by ID or name
+Display current inventory status
+Track low stock items
+Generate inventory reports
+
+
+
+********************Algorithm
+1. Start
+2. Initialize an empty inventory (Dictionary with ID, Name, Price, Quantity)
+3. Display the menu with the following options:
+  Add a new product
+  Update existing product quantity
+  Remove a product
+  Search for a product by ID or name
+  Display all inventory items
+  Track low stock items (Quantity < threshold)
+  Generate an inventory report
+  Exit
+4. Process the user's selection:
+  Add Product: Ask for ID, name, price, and quantity, then store it in the inventory
+  Update Quantity: Search for a product using ID and modify its quantity
+  Remove Product: Delete a product from the inventory based on ID
+  Search Product: Find and display product details by ID or name
+  Display Inventory: Show all products with details
+  Track Low Stock: Identify and display products with low stock
+  Generate Report: Show a summary of all products
+  Exit: Terminate the program
+5. Repeat the menu until the user selects "Exit"
+6. End
+
+
+
+*****************Pseudocode
+
+START
+  DECLARE inventory as an empty dictionary
+
+  WHILE True DO
+    PRINT "Inventory Management Menu"
+    PRINT "1. Add Product"
+    PRINT "2. Update Product Quantity"
+    PRINT "3. Remove Product"
+    PRINT "4. Search Product"
+    PRINT "5. Display Inventory"
+    PRINT "6. Track Low Stock Items"
+    PRINT "7. Generate Inventory Report"
+    PRINT "8. Exit"
+    PRINT "Enter your choice:"
+    INPUT choice
+
+    IF choice == 1 THEN
+      PRINT "Enter Product ID, Name, Price, Quantity"
+      INPUT id, name, price, quantity
+      ADD {id: {name, price, quantity}} TO inventory
+      PRINT "Product added successfully"
+
+    ELSE IF choice == 2 THEN
+      PRINT "Enter Product ID to update quantity"
+      INPUT id
+      IF id EXISTS in inventory THEN
+        PRINT "Enter new quantity"
+        INPUT quantity
+        UPDATE inventory[id]["quantity"] = quantity
+        PRINT "Quantity updated"
+      ELSE
+        PRINT "Product not found"
+      ENDIF
+
+    ELSE IF choice == 3 THEN
+      PRINT "Enter Product ID to remove"
+      INPUT id
+      IF id EXISTS in inventory THEN
+        DELETE inventory[id]
+        PRINT "Product removed"
+      ELSE
+        PRINT "Product not found"
+      ENDIF
+
+    ELSE IF choice == 4 THEN
+      PRINT "Enter Product ID or Name to search"
+      INPUT search_query
+      IF search_query EXISTS in inventory THEN
+        PRINT "Product details:", inventory[search_query]
+      ELSE
+        PRINT "Product not found"
+      ENDIF
+
+    ELSE IF choice == 5 THEN
+      PRINT "Displaying all inventory items"
+      FOR EACH product IN inventory
+        PRINT product details
+      ENDFOR
+
+    ELSE IF choice == 6 THEN
+      PRINT "Low Stock Products (Quantity < 5):"
+      FOR EACH product IN inventory
+        IF inventory[product]["quantity"] < 5 THEN
+          PRINT product details
+        ENDIF
+      ENDFOR
+
+    ELSE IF choice == 7 THEN
+      PRINT "Generating Inventory Report"
+      PRINT "Total products:", COUNT(inventory)
+      PRINT "Total value:", SUM(price * quantity for all products)
+
+    ELSE IF choice == 8 THEN
+      PRINT "Exiting..."
+      BREAK
+
+    ELSE
+      PRINT "Invalid choice, try again"
+    ENDIF
+
+  ENDWHILE
+END
+
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+4.  Prime Number Checker
+Program Description: Create a program that determines whether a given number is prime or not. A prime number is only divisible by 1 and itself with no other factors.
+
+Key Features:
+Accept numerical input from user
+Verify if input is valid (positive integer)
+Use efficient algorithm to check for primality
+Display result with explanation
+Option to check additional numbers
+
+
+
+
+
+********************Algorithm
+
+
+1. Start
+2. Accept a number as input from the user
+3. Validate if the input is a positive integer. If not, prompt the user again
+4. If the number is less than 2, it is not prime
+5. Check divisibility from 2 to √n (square root of n):
+   If the number is divisible by any of these, it is not prime
+   If no divisors are found, it is prime
+6. Display the result with an explanation
+7. Ask if the user wants to check another number
+8. Repeat or exit based on user choice
+9. End
+
+
+
+**********************Pseudocode
+
+
+BEGIN
+    REPEAT
+        PRINT "Enter a number:"
+        READ num
+
+        IF num < 2 THEN
+            PRINT num, "is NOT a prime number."
+        ELSE
+            SET is_prime = TRUE
+            FOR i FROM 2 TO sqrt(num) DO
+                IF num MOD i == 0 THEN
+                    SET is_prime = FALSE
+                    BREAK
+                ENDIF
+            ENDFOR
+
+            IF is_prime THEN
+                PRINT num, "is a prime number."
+            ELSE
+                PRINT num, "is NOT a prime number."
+            ENDIF
+        ENDIF
+        
+        PRINT "Do you want to check another number? (yes/no)"
+        READ choice
+    UNTIL choice == "no"
+END
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+5. Temperature Conversion Tool
+Program Description: Develop a program that converts temperatures between Celsius, Fahrenheit, and Kelvin. The user should be able to select the input and output temperature scales.
+
+Key Features:
+Accept temperature value input
+Allow selection of source unit (C, F, or K)
+Allow selection of target unit (C, F, or K)
+Perform accurate conversion using correct formulas
+Display converted result with appropriate unit
+Option for multiple conversions
+
+
+
+
+***************************Algorithm
+
+1. Start
+2. Prompt the user to enter a temperature value
+3. Ask the user to select the source unit (C, F, or K)
+4. Ask the user to select the target unit (C, F, or K)
+5. Validate that the input is a valid number and unit
+6. Perform the conversion based on the selected source and target unit using the correct formulas
+   Celsius to Fahrenheit:  F=(C×9/5)+32
+   Celsius to Kelvin: K=  C+273.15
+   Fahrenheit to Celsius:  C=(F−32)×5/9
+   Fahrenheit to Kelvin:  K=(F−32)×5/9+273.15
+   Kelvin to Celsius: C=K−273.15
+   Kelvin to Fahrenheit: F=(K−273.15)×9/5+32
+7. Display the converted temperature with the appropriate unit
+8. Ask the user if they want to perform another conversion
+9. Repeat or exit based on user choice
+10. End
+
+
+
+**************************Pseudocode
+
+
+BEGIN
+    REPEAT
+        PRINT "Enter the temperature value:"
+        READ temp_value
+
+        PRINT "Select source unit (C, F, K):"
+        READ source_unit
+
+        PRINT "Select target unit (C, F, K):"
+        READ target_unit
+
+        IF source_unit == target_unit THEN
+            PRINT "Converted temperature:", temp_value, target_unit
+        ELSE
+            IF source_unit == "C" AND target_unit == "F" THEN
+                converted_temp = (temp_value * 9/5) + 32
+            ELSE IF source_unit == "C" AND target_unit == "K" THEN
+                converted_temp = temp_value + 273.15
+            ELSE IF source_unit == "F" AND target_unit == "C" THEN
+                converted_temp = (temp_value - 32) * 5/9
+            ELSE IF source_unit == "F" AND target_unit == "K" THEN
+                converted_temp = (temp_value - 32) * 5/9 + 273.15
+            ELSE IF source_unit == "K" AND target_unit == "C" THEN
+                converted_temp = temp_value - 273.15
+            ELSE IF source_unit == "K" AND target_unit == "F" THEN
+                converted_temp = (temp_value - 273.15) * 9/5 + 32
+            ENDIF
+
+            PRINT "Converted temperature:", converted_temp, target_unit
+        ENDIF
+
+        PRINT "Do you want to convert another temperature? (yes/no)"
+        READ choice
+    UNTIL choice == "no"
+END
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+6. Library Book Management System
+
+
+
+***************************Alorithm
+
+1. Start
+2.   Initialize Data Structures
+   Maintain a book database with attributes: title, author, ISBN, status (available/checked out), and due date
+   Maintain a member database with attributes: name, member ID, borrowed books, and fines
+3.   Implement Functionalities
+   Adding a New Book
+   Accept title, author, and ISBN from the librarian
+   Add the book to the database with a status of "available"
+   Removing a Book
+   Accept the ISBN of the book to be removed
+   If the book exists, remove it from the database
+   Checking Out a Book
+   Accept member ID and ISBN
+   Verify if the book is available
+   If available, mark it as "checked out" and set a due date
+   Add the book to the member’s borrowed list
+   Returning a Book
+   Accept ISBN and member ID
+   Check if the book is in the member’s borrowed list
+   If overdue, calculate the late fee
+   Mark the book as "available" in the system
+   Searching for a Book
+   Allow searching by title, author, or ISBN
+   Display matching books with availability statu.
+   Generating Overdue Report
+   Check all books with due dates past the current date
+   List overdue books along with the member details
+4.    Allow the Librarian to Perform Multiple Action
+   Keep displaying the menu options until the librarian chooses to exit
+5.    End
+
+
+
+***********************Pseudocode
+
+
+
+START
+
+DEFINE Book class:
+    Attributes: title, author, ISBN, status (Available/Checked Out)
+
+DEFINE Member class:
+    Attributes: name, member_id, borrowed_books (list)
+
+DEFINE Library class:
+    Attributes: books (list), members (list)
+    
+    FUNCTION add_book(title, author, ISBN):
+        Create new Book object with status "Available"
+        Add to books list
+
+    FUNCTION remove_book(ISBN):
+        Find book by ISBN
+        IF found THEN remove from books list
+
+    FUNCTION register_member(name, member_id):
+        Create new Member object
+        Add to members list
+
+    FUNCTION checkout_book(member_id, ISBN):
+        Find book and member
+        IF book is available THEN
+            Change status to "Checked Out"
+            Add book to member's borrowed_books list
+        ELSE
+            DISPLAY "Book not available"
+    FUNCTION return_book(member_id, ISBN):
+        Find member and book
+        IF book is in member's borrowed_books THEN
+            Change status to "Available"
+            Remove book from member's borrowed_books list
+        ELSE
+            DISPLAY "Book not checked out"
+
+    FUNCTION search_book(query):
+        Search books by title, author, or ISBN
+        DISPLAY matching results
+
+    FUNCTION generate_overdue_report():
+        CHECK due dates and list overdue books
+
+LOOP
+    DISPLAY menu: Add Book, Remove Book, Register Member, Checkout, Return, Search, Overdue Report, Exit
+    INPUT choice
+    EXECUTE corresponding function based on choice
+    IF choice == "Exit" THEN EXIT LOOP
+
+END
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+7. Fibonacci Sequence Generator
+Program Description: Create a program that generates the Fibonacci sequence up to a specified number of terms. The Fibonacci sequence starts with 0 and 1, and each subsequent number is the sum of the two preceding numbers.
+
+Key Features:
+Accept number of terms to generate
+Validate input is reasonable (positive integer within limits)
+Generate sequence using efficient algorithm
+Display sequence with appropriate formatting
+Option to save sequence to file
+
+
+
+
+**********************************Algorithm
+
+1. Start
+2. Prompt the user to enter the number of terms (N)
+3. Validate that the input is a positive integer greater than zero
+4. If the input is invalid, display an error message and ask for input again
+5. Initialize the first two Fibonacci numbers: F0 = 0, F1 = 1
+6. If N == 1, print [0] and exit
+7. If N == 2, print [0, 1] and exit
+8. Create an empty list to store the sequence
+9. Add F0 and F1 to the list
+10. Use a loop to generate the next Fibonacci terms up to N:
+    Compute the next term: Fn = F(n-1) + F(n-2)
+    Append Fn to the list
+11. Display the Fibonacci sequence
+12. Ask the user if they want to save the sequence to a file
+13. If yes, write the sequence to a file
+14. End
+
+
+
+************************************Pseudocode
+
+
+BEGIN
+    PRINT "Enter the number of terms: "
+    INPUT N
+    
+    IF N <= 0 THEN
+        PRINT "Invalid input! Please enter a positive integer."
+        EXIT
+    
+    SET F0 = 0
+    SET F1 = 1
+    
+    IF N == 1 THEN
+        PRINT "[0]"
+        EXIT
+    ELSE IF N == 2 THEN
+        PRINT "[0, 1]"
+        EXIT
+    
+    INITIALIZE list FIBONACCI_SEQUENCE = [F0, F1]
+    
+    FOR i FROM 2 TO N-1 DO
+        SET NEXT_TERM = FIBONACCI_SEQUENCE[i-1] + FIBONACCI_SEQUENCE[i-2]
+        APPEND NEXT_TERM TO FIBONACCI_SEQUENCE
+    END FOR
+    
+    PRINT "Fibonacci Sequence: ", FIBONACCI_SEQUENCE
+    
+    PRINT "Do you want to save the sequence to a file? (yes/no)"
+    INPUT CHOICE
+    IF CHOICE == "yes" THEN
+        OPEN FILE "fibonacci_sequence.txt" FOR WRITING
+        WRITE FIBONACCI_SEQUENCE TO FILE
+        CLOSE FILE
+        PRINT "Sequence saved to fibonacci_sequence.txt"
+    END IF
+
+END
+
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+8. Calendar Event Scheduler
+Program Description: Develop a program that allows users to schedule events on a calendar. Users should be able to add events with dates, times, and descriptions, view all events, and delete events.
+
+Key Features:
+Add events with title, date, time, and description
+Validate date and time inputs
+Store events in organized data structure
+Display events for a specific day, week, or month
+Search events by title or description
+Delete or modify existing events
+Set reminders for upcoming events
+Check for schedule conflicts
+
+
+
+*************************Algorithm
+
+
+1. Start
+2. Display the main menu with the following options:
+   Add Event
+   View Events
+   Search Events
+   Delete Event
+   Modify Event
+   Set Reminder
+   Check Schedule Conflicts
+   Exit
+3. Prompt the user to select an option
+4. Add Event:
+   Ask the user for the event title, date (YYYY-MM-DD), time (HH:MM), and description
+   Validate the date and time format
+   Store the event in an organized data structure (e.g., dictionary or list)
+5. View Events:
+   Allow the user to select viewing options: day, week, or month
+   Retrieve and display the events based on the selected date range
+6. Search Events:
+   Ask the user to input a keyword (search by title or description)
+   Retrieve and display matching events
+7. Delete Event:
+   Ask the user to enter the title or date of the event
+   Find and remove the event from storage
+8. Modify Event:
+   Ask the user to select an event to edit
+   Allow modifications for title, date, time, or description
+9. Set Reminder:
+   Ask the user for the event title
+   Set a reminder based on user preference (e.g., minutes/hours before the event)
+10. Check Schedule Conflicts:
+    Check if multiple events are scheduled at the same date and time
+    Warn the user about overlapping events
+11. If the user selects Exit, terminate the program
+12. End
+
+
+
+
+**************************Pseudocode
+
+
+START
+DEFINE event_list as an empty list
+
+FUNCTION add_event(title, date, time, description):
+    VALIDATE date and time
+    CHECK for conflicts with existing events
+    IF no conflict THEN
+        APPEND (title, date, time, description) to event_list
+        DISPLAY "Event added successfully"
+    ELSE
+        DISPLAY "Schedule conflict detected"
+
+FUNCTION display_events(filter_type, filter_value):
+    IF filter_type is "day/week/month":
+        FILTER event_list based on filter_value
+    DISPLAY filtered events
+
+FUNCTION search_event(keyword):
+    SEARCH event_list for keyword in title or description
+    DISPLAY matching events
+
+FUNCTION delete_event(title, date, time):
+    FIND event in event_list
+    IF event exists THEN
+        REMOVE event from event_list
+        DISPLAY "Event deleted successfully"
+    ELSE
+        DISPLAY "Event not found"
+FUNCTION modify_event(title, date, time, new_details):
+    FIND event in event_list
+    IF event exists THEN
+        UPDATE event details
+        DISPLAY "Event modified successfully"
+    ELSE
+        DISPLAY "Event not found"
+
+FUNCTION set_reminder(title, date, time, reminder_time):
+    VALIDATE reminder_time
+    SCHEDULE reminder notification
+    DISPLAY "Reminder set"
+
+LOOP
+    DISPLAY menu (Add, View, Search, Delete, Modify, Set Reminder, Exit)
+    INPUT choice
+    PERFORM corresponding function based on choice
+    IF choice == "Exit" THEN EXIT LOOP
+
+END
+
+
