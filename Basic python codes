@@ -1,0 +1,109 @@
+Problem 1: Calculate the Sum of Natural Numbers
+Write an algorithm that calculates the sum of all natural numbers from 1 to a given number n.
+
+
+def sum_of_natural_numbers():
+    try:
+        n = input("Enter a positive integer (n): ")
+        if n <= 0:
+            print("Error: Please enter a positive integer.")
+            return
+        total_sum = 0
+        for i in range(1, n + 1):
+            total_sum += i
+        print("The sum of natural numbers from 1 to {n} is: {total_sum}")
+    except ValueError:
+        print("Error: Invalid input. Please enter a valid positive integer.")
+sum_of_natural_numbers()
+
+
+
+---------------------------------------------------------
+
+
+Problem 2: Check for Prime Number
+Write an algorithm that checks if a given number n is a prime number or not.
+
+
+
+
+def is_prime(n):
+    if n <= 1:
+        return False 
+    for i in range(2, n):  
+        if n % i == 0:
+            return False 
+    return True 
+n = int(input("Enter a positive integer: "))
+if is_prime(n):
+    print(f"{n} is a prime number")
+else:
+    print(f"{n} is not a prime number")
+
+
+---------------------------------------------------------
+
+
+Problem 3: Find the Maximum of Three Numbers
+Write an algorithm that takes three numbers as input and finds the largest of them.
+
+
+
+
+def find_max(a, b, c):
+    if a >= b and a >= c:
+        return a
+    elif b >= a and b >= c:
+        return b
+    else:
+        return c
+a = float(input("Enter the first number: "))
+b = float(input("Enter the second number: "))
+c = float(input("Enter the third number: "))
+
+max_value = find_max(a, b, c)
+print(f"The maximum value among {a}, {b}, and {c} is: {max_value}")
+
+
+
+---------------------------------------------------------
+
+
+
+
+Problem 4: Factorial Calculation
+Write an algorithm that calculates the factorial of a number n.
+
+
+
+def factorial(n):
+    result = 1
+    for i in range(1, n + 1):  
+        result *= i
+    return result
+n = int(input("Enter a positive integer: "))
+if n < 0:
+    print("Error: Factorial is not defined for negative numbers.")
+else:
+    print(f"The factorial of {n} is: {factorial(n)}")
+
+
+
+---------------------------------------------------------
+
+
+
+Problem 5: Check if a Number is Even or Odd
+Write an algorithm that checks if a given number n is even or odd.
+
+
+
+
+def check_even_odd(n):
+    if n % 2 == 0:
+        return "Even"
+    else:
+        return "Odd"
+n = int(input("Enter an integer: "))
+result = check_even_odd(n)
+print(f"The number {n} is {result}.")
